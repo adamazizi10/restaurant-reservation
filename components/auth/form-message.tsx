@@ -1,7 +1,8 @@
-import type { AuthActionState } from "@/lib/auth/state";
-
 type FormMessageProps = {
-  state: AuthActionState;
+  state: {
+    status: "idle" | "error" | "success";
+    message: string;
+  };
   fallbackMessage?: string;
 };
 

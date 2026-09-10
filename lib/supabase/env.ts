@@ -5,6 +5,8 @@ type SupabasePublicEnv = {
 
 const missingSupabaseEnvMessage =
   "Missing Supabase configuration. Set NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY in .env.local.";
+const missingSupabaseServiceRoleKeyMessage =
+  "Missing Supabase service role key. Set SUPABASE_SERVICE_ROLE_KEY in .env.local for server-side restaurant creation.";
 
 export function getSupabasePublicEnv(): SupabasePublicEnv | null {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -28,4 +30,18 @@ export function requireSupabasePublicEnv(): SupabasePublicEnv {
   }
 
   return env;
+}
+
+export function getSupabaseServiceRoleKey() {
+  return process.env.SUPABASE_SERVICE_ROLE_KEY || null;
+}
+
+export function requireSupabaseServiceRoleKey() {
+  const serviceRoleKey = getSupabaseServiceRoleKey();
+
+  if (!serviceRoleKey) {
+    throw new Error(missingSupabaseServiceRoleKeyMessage);
+  }
+
+  return serviceRoleKey;
 }

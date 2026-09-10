@@ -2,6 +2,23 @@
 
 These checks require a configured Supabase project and access to the email inbox used during testing.
 
+## Supabase Auth Configuration
+
+Before running the email-link checks, confirm Supabase Auth is configured to use the browser-facing app and API URLs.
+
+For the app:
+
+- `NEXT_PUBLIC_APP_URL` should match the app origin used in the browser, usually `http://localhost:3000`.
+- `NEXT_PUBLIC_SUPABASE_URL` should be the browser-facing Supabase API origin, not an internal Docker hostname.
+
+For Supabase Auth:
+
+- Site URL should be `http://localhost:3000` for local manual testing.
+- Redirect URLs should allow `http://localhost:3000/auth/callback`.
+- Self-hosted Supabase must use a public Auth API external URL in email links. Recent self-hosted Supabase configs expect `API_EXTERNAL_URL` to include the auth path, for example `https://your-supabase-domain.example/auth/v1`.
+
+If a verification email opens `http://supabase-kong:8000/auth/v1/verify?...`, Supabase is generating links with its internal container-network URL. Update the self-hosted Supabase `API_EXTERNAL_URL` or equivalent Auth external URL setting, restart the Supabase auth service, then request a fresh verification email.
+
 ## Signup And Verification
 
 1. Open `/signup`.

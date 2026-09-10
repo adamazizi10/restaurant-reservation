@@ -14,8 +14,8 @@
 | ID | Feature | Main UI / Result | Status |
 |---|---|---|---|
 | F01 | Authentication experience | Sign up, email verification, login, logout, password reset/recovery and session handling | DONE |
-| F02 | Restaurant account + trial creation | Create restaurant tenant, Owner membership, restaurant details and 14-day trial state | PLANNED |
-| F03 | Restaurant authorization | Protected restaurant area with Owner/Admin/Staff server-side authorization | PLANNED |
+| F02 | Restaurant account + trial creation | Create restaurant tenant, Owner membership, restaurant details and 14-day trial state | DONE |
+| F03 | Restaurant authorization | Protected restaurant area with Owner/Admin/Staff server-side authorization | DONE |
 | F04 | Restaurant profile and branding | Restaurant details, contact information, logo/image, primary color and public slug settings | PLANNED |
 | F05 | Opening hours | Friendly weekly opening-hours editor including closed days | PLANNED |
 | F06 | Dining areas | Create/edit/disable areas such as Main Dining, Patio or Bar and control online availability | PLANNED |
